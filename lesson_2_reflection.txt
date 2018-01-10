@@ -1,0 +1,95 @@
+**************************Para verificar pasta ocultas ls -a**********************************
+
+1.0 - CRIANDO UM REPOSITÓRIO
+
+ Para se criar um repositório, basta usar o comando;
+
+**** git init (na pasta que contem os arquivos do repositorio)
+
+Outro comando muit usado para verificar se o git init deu certo é o;
+
+**** git status
+
+Ele mostra qual é o commit atual e quais arquivos novos foram criados.
+Quando criamos um repositório ele não apresenta nem um commit pois não "enviamos os novos arquivos ainda"
+
+*******************************************************************************************
+thiago@thiago-Aspire-5733:~/Projects/controlVersion/teste$ git add teste1.txt
+thiago@thiago-Aspire-5733:~/Projects/controlVersion/teste$ git add teste2.txt
+thiago@thiago-Aspire-5733:~/Projects/controlVersion/teste$ git status
+No ramo master
+
+Submissão inicial.
+
+Mudanças a serem submetidas:
+  (utilize "git rm --cached <arquivo>..." para não apresentar)
+
+	new file:   teste1.txt
+	new file:   teste2.txt
+
+Arquivos não monitorados:
+  (utilize "git add <arquivo>..." para incluir o que será submetido)
+
+	teste3.txt
+**********************************************************************************************
+
+ 
+
+1.1 CRIANDO UM COMMIT
+
+Para enviar um trabalho para o git, primeiro adicionamos a uma área secuntaria com o comando
+
+****git add arquivo
+
+ Ao enviarmos esses arquivos nós vemos que eles foram introduzidos porém ainda não tem commits. Quando adicinamos uma commit errada, nós usamos o comando;
+
+****git reset
+
+que retorna os arquivos que estavam na área secuntdária.
+
+ Após add um arquivo a aré secundária, precisamos fazer um commit, para tal usamos o seguinte comando.
+
+****git commit
+
+ Então escrevemos o comentário e salvamos. depois para verficar usamos o comando git log ou git status.
+
+1.1 CRIANDO BRENCH
+
+Brench são caminhos diferentes para nosso sistema, por exemplo quando queremos que um site esteja em português e inglês, para isso criamos uma brench então teremos dois "caminhos principais", onde elas coexistem.
+ Para verificar quantas brech temos no repositório, usamos;
+
+*** git branch
+
+ Para criarmos uma branch é muito simples apenas acrescentamos o nome da branch a frente.
+
+*** git branch (nome da nova branch)
+
+ Bem agora criamos a nossa brench, porém ainda estamos na brench master. Precisamos de um comando que permita a navegação entre as brenchs, esse comando é o;
+
+*** git checkout (nome da branch a ser acessada)
+
+agora realizado isso estamos na brench secundária e podemos realizar as modificações necessárias.
+
+
+**Quando temos uma branch que foi modificada e a outra branch avançou nas atualizações usamos o seguinte comando para compara os commits
+
+****git log --graph --oneline (branch mais atual) (branch desatualizada)
+
+ Em diversas ocasiões precisamos mesclar algumas altereração com o brach master. Para isso usamos o seguinte processo, primeiro você  faz checkout em uma dos brenchs que vc quer mesclar, depois execute o seguinte comando.
+
+****git merge (branch) Esse branch é a ser mesclada com a sua brench em checkout.
+
+ou 
+
+****git merge branch1 brench2
+
+Além disso, como os dois branches estão mesclados, a ordem em que são digitados na linha de comando não importa. Você deve se lembrar que git merge sempre mescla todos os branches especificados no branch atualmente com check-out, criando um novo commit para esse branch.
+
+ Quando mesclamos as branchs, ao realizar git log, fica complicado descobrir qual é o pai de uma commit, pois são ordenadas cronologicamente.
+Para resolver isso usamos o git show, que nos fornece a diferença entre a commit e seu pai
+
+***git show commit_id
+
+Algumas vezes não conseguimos mesclar automaticamante duas branch, quando isso ocorre nos temos que mesclar manualmente e isso é feito apagando a parte do codigo que não interessa. O git marca com caractres especiais quais são as partes com conflito. Uma vantagem de realizar a mesclagem manual é aproveitar o melhor de cada codigo.
+ 
+
